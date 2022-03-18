@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  build: ^2.2.1
+  analyzer: ^3.3.1
   build_runner: ^2.1.8
   source_gen: ^1.2.1
   flutter_mixin_router_ann: ^1.0.0
