@@ -1,0 +1,37 @@
+targets:
+  $default:
+    builders:
+      flutter_mixin_router_gen|router_table_list_build:
+        enabled: true
+        generate_for:
+          exclude: [ '**.table.dart','**.route.dart','**.interceptor.dart' ]
+      flutter_mixin_router_gen|route_build:
+        enabled: true
+        generate_for:
+          exclude: [ '**.table.dart','**.route.dart','**.interceptor.dart' ]
+      flutter_mixin_router_gen|interceptor_route_build:
+        enabled: true
+        generate_for:
+          exclude: [ '**.table.dart','**.route.dart','**.interceptor.dart' ]
+
+builders:
+  router_table_list_build:
+    import: "package:flutter_mixin_router_gen/builder.dart"
+    builder_factories: [ "generateTableListBuilder" ]
+    build_extensions: { ".dart": [ '.table.dart' ] }
+    auto_apply: root_package
+    build_to: source
+  route_build:
+    import: "package:flutter_mixin_router_gen/builder.dart"
+    builder_factories: [ "generateRouteBuilder" ]
+    build_extensions: { ".dart": [ '.route.dart' ] }
+    auto_apply: root_package
+    build_to: source
+    runs_before: [ 'flutter_mixin_router_gen|router_table_list_build' ]
+  interceptor_route_build:
+    import: "package:flutter_mixin_router_gen/builder.dart"
+    builder_factories: [ "generateInterceptorRouteBuilder" ]
+    build_extensions: { ".dart": [ '.interceptor.dart' ] }
+    auto_apply: root_package
+    build_to: source
+    runs_before: [ 'flutter_mixin_router_gen|router_table_list_build' ]
