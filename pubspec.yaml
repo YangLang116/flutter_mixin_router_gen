@@ -1,6 +1,6 @@
 name: flutter_mixin_router_gen
 description: Code generator for flutter_mixin_router that adds support for annotating your code with @MixinRoute, @MixinInterceptRoute, @RouterTableList.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/YangLang116/flutter_mixin_router_gen
 
 environment:
