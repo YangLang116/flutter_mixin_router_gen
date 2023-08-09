@@ -1,3 +1,6 @@
+## 1.0.4
+* fix some bugs
+
 ## 1.0.3
 * support arg
 

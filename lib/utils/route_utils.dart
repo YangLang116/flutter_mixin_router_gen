@@ -65,8 +65,8 @@ Set<String> getInterceptorRouteRegister(List<InterceptorRouteInfo> interceptorRo
   return content;
 }
 
-Set<String> getPureRouteInstall(List<PureRouteInfo> pureRouteList) {
-  Set<String> content = HashSet();
+List<String> getPureRouteInstall(List<PureRouteInfo> pureRouteList) {
+  List<String> content = [];
   content.add('Map<String, WidgetBuilder> superRouterList = super.installRouters();');
   content.add('Map<String, WidgetBuilder> routers = {');
   for (PureRouteInfo route in pureRouteList) {
