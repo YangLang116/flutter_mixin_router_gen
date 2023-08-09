@@ -11,16 +11,16 @@ class BaseRouteInfo {
 }
 
 class PureRouteInfo extends BaseRouteInfo {
+  final bool arg;
   final String pageName;
 
-  PureRouteInfo(String path, String uri, this.pageName) : super(path, uri);
+  PureRouteInfo(String path, String uri, this.pageName, this.arg) : super(path, uri);
 }
 
 class InterceptorRouteInfo extends BaseRouteInfo {
   final String methodName;
 
-  InterceptorRouteInfo(String path, String uri, this.methodName)
-      : super(path, uri);
+  InterceptorRouteInfo(String path, String uri, this.methodName) : super(path, uri);
 }
 
 class RouteInfoCollector {

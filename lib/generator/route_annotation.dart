@@ -21,12 +21,14 @@ class RouteAnnotationGenerator extends GeneratorForAnnotation<MixinRoute> {
     if (tName == null || tName.isEmpty) return null;
     String? path = annotation.peek('path')?.stringValue;
     if (path == null || path.isEmpty) return null;
+    bool? arg = annotation.peek('arg')?.boolValue;
+    if (arg == null) return null;
     RouteInfoCollector collector = await buildStep.fetchResource(routeResource);
     Map<String, List<PureRouteInfo>> pureRouteMap = collector.pureRouteMap;
     if (!pureRouteMap.containsKey(tName)) {
       pureRouteMap[tName] = <PureRouteInfo>[];
     }
-    PureRouteInfo routeInfo = PureRouteInfo(path, uri, pageName);
+    PureRouteInfo routeInfo = PureRouteInfo(path, uri, pageName, arg);
     pureRouteMap[tName]!.add(routeInfo);
     return null;
   }
