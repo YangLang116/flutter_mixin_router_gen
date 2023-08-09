@@ -69,11 +69,13 @@ List<String> getPureRouteInstall(List<PureRouteInfo> pureRouteList) {
   List<String> content = [];
   content.add('Map<String, WidgetBuilder> superRouterList = super.installRouters();');
   content.add('Map<String, WidgetBuilder> routers = {');
+  Set<String> routeList = HashSet();
   for (PureRouteInfo route in pureRouteList) {
     String variantName = path2Variant(route.path);
     String arg = route.arg ? 'ModalRoute.of(context)!.settings.arguments' : '';
-    content.add('$variantName : (context) => ${route.pageName}($arg),');
+    routeList.add('$variantName : (context) => ${route.pageName}($arg),');
   }
+  content.addAll(routeList);
   content.add('};');
   content.add('routers.addAll(superRouterList);');
   content.add('return routers;');
